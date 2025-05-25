@@ -41,6 +41,18 @@ app.get('/insertarusuario', (req,res)=>{
         });
 });
 
+app.get('/consultarusuarios', (req, res) => {
+    modeloUsuario.find()
+        .then(usuarios => {
+            console.log('Usuario encontrado:', usuarios);
+            res.end('Esteban es una perra');
+
+        })
+        .catch(err => {
+            console.error('Error al buscar usuarios:', err);
+        });
+});
+
 app.listen(8888, function() {
-    console.log("Aplicación corriendo");
+    console.log('Aplicación corriendo');
 })
