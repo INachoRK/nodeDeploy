@@ -3,6 +3,7 @@ const exp = require('express');
 const app = exp();
 const inventario = require("./OperacionesObjetos/inventario");
 const connection = require("./config/connection");
+const modeloUsuario = require('./models/usuario.model')
 
 app.get('/quierosumar', (req, res) => {
     let operacion = cal.suma(5, 3)
@@ -23,6 +24,22 @@ app.get('/conectar', (req, res) => {
     console.log(connection)
     res.end();
 })
+
+app.get('/insertarusuario', (req,res)=>{
+    const nuevoUsuario = new modeloUsuario({
+        nombre: 'Juanito',
+        edad: 30,
+        correo: 'juan.perez@ejemplo.com'
+    });
+
+    nuevoUsuario.save()
+        .then(usuario => {
+            console.log('Usuario creado:', usuario);
+        })
+        .catch(err => {
+            console.error('Error al crear usuario:', err);
+        });
+});
 
 app.listen(8888, function() {
     console.log("Aplicación corriendo");

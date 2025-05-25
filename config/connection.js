@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const URI ='mongodb+srv://Nacho:Ug2lOBJvCFR0zmn7@2873441.eesayv0.mongodb.net/'
+const URI ='mongodb+srv://Nacho:Ug2lOBJvCFR0zmn7@2873441.eesayv0.mongodb.net/AdsoDB'
 
 mongoose.connect(URI);
 
